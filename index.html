@@ -10,7 +10,18 @@
 
   <script>
     function handleCredentialResponse(response) {
-        console.log(response);
+        const responsePayLoad = decodeJwtResponse(response.credential);
+        console.log("ID: " + responsePayLoad.sub);
+        console.log("Full Name: " + responsePayLoad.name);
+        console.log("Given Name: " + responsePayLoad.given_name);
+        console.log("Family Name: " + responsePayLoad.family_name);
+        console.log("Image URL: " + responsePayLoad.picture);
+        console.log("Email: " + responsePayLoad.email);
+    }
+
+    function decodeJwtResponse(data) {
+        var tokens = data.split(".");
+        return JSON.parse(atob(tokens[1]))
     }
   </script>
 </html>
