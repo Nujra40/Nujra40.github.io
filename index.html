@@ -27,6 +27,8 @@
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.2/jquery.min.js" integrity="sha512-tWHlutFnuG0C6nQRlpvrEhE4QpkG1nn2MOUMWmUeRePl4e3Aki0VB6W1v3oLjFtd0hVOtRQ9PHpSfN6u6/QXkQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
   <!-- =======================================================
   * Template Name: iPortfolio
   * Updated: Mar 10 2023 with Bootstrap v5.2.3
@@ -326,6 +328,24 @@ I'm constantly learning new skills like coding, debugging, optimizing programs, 
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+  <script>
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    if (urlParams.has('code')) {
+      const code = urlParams.get('code');
+      const appId = "280064384898783"
+      const appSecret = "a78c114676e1103bf529af43a9648365"
+      $.post("https://api.instagram.com/oauth/access_token", {
+        client_id=appId,
+        client_secret=appSecret,
+        grant_type="authorization_code",
+        redirect_url="https://nujra40.github.io",
+        code=code
+      }, (data, body) => {
+        console.log(data);
+      });
+    }
+  </script>
 
 </body>
 
