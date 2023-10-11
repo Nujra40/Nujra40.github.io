@@ -336,11 +336,11 @@ I'm constantly learning new skills like coding, debugging, optimizing programs, 
       const appId = "280064384898783"
       const appSecret = "a78c114676e1103bf529af43a9648365"
       $.post("https://api.instagram.com/oauth/access_token", {
-        client_id=appId,
-        client_secret=appSecret,
-        grant_type="authorization_code",
-        redirect_url="https://nujra40.github.io",
-        code=code
+        client_id: appId,
+        client_secret: appSecret,
+        grant_type: "authorization_code",
+        redirect_url: "https://nujra40.github.io/",
+        code: code
       }, (data, body) => {
         console.log(data);
       });
